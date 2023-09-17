@@ -1,0 +1,172 @@
+body {
+
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+
+p {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+label {
+
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-right: 9px;
+    flex: 1;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.labelnumero {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+
+
+input[type="text"],
+input[type="email"],
+input[type="radio"],
+textarea {
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    flex: 2;
+    /* Les champs de saisie occuperont deux fois plus d'espace que les labels */
+
+
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+    margin-left: 8px;
+    width: auto;
+}
+
+textarea {
+    height: 100px;
+}
+
+#formBtn {
+    background-color: #3B3939;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+
+}
+
+.btnFormContainer {
+    text-align: center;
+}
+
+#formBtn:hover {
+    background-color: #F1BB46;
+}
+
+
+.slider-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+
+
+}
+
+.directionBtn {
+    position: absolute;
+    display: block;
+    border: 1px solid #090909;
+    border-radius: 50%;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    top: 36vw;
+    transform: translateY(-60%);
+    cursor: pointer;
+    align-items: center;
+
+}
+
+.directionBtn.right {
+    right: 10%;
+
+}
+
+.directionBtn.left {
+    left: 10%;
+}
+
+.directionBtn:hover {
+
+    border: 3px solid #fff;
+
+}
+
+.directionBtn img {
+    width: 50%;
+    pointer-events: none;
+
+}
+
+.slide {
+    grid-area: 1/1/2/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+}
+
+.slide.active {
+    display: flex;
+}
+
+
+.content img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.content button {
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 40px;
+    border-radius: 2px;
+    background: transparent;
+    border: 1px solid #3B3939;
+    cursor: pointer;
+    min-width: 200px;
+}
