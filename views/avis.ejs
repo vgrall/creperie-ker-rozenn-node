@@ -3,89 +3,127 @@
 <script src="../javascript/avis.js" defer></script>
 
 <main>
-
-    <section>
-        <div class="container">
-            <h2>Formulaire de Satisfaction</h2>
-            <p>Merci de prendre quelques instants pour nous donner votre avis sur votre expérience au restaurant.
-            </p>
-            <form method="POST" id="satisfactionForm">
-
-                <div class="form-group">
-                    <label for="prenom">Prénom:</label>
-                    <input type="text" id="name" name="name" required>
+    <div id="formEtAdvice">
+        <section class="formAdvice">
+            <div id="successModal" class="modal">
+                <div class="modal-content">
+                    <!-- <p class="close">&times;</p> -->
+                    <p>Votre avis a été envoyé avec succès!</p>
                 </div>
-                <div class="form-group">
-                    <label for="name">Nom:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Votre satisfaction globale:</label>
-                    <input type="radio" id="satisfaction5" name="satisfaction" value="5">
-                    <label class="labelnumero" for="satisfaction5">5</label>
-                    <input type="radio" id="satisfaction4" name="satisfaction" value="4">
-                    <label class="labelnumero" for="satisfaction4">4</label>
-                    <input type="radio" id="satisfaction3" name="satisfaction" value="3">
-                    <label class="labelnumero" for="satisfaction3">3</label>
-                    <input type="radio" id="satisfaction2" name="satisfaction" value="2">
-                    <label class="labelnumero" for="satisfaction2">2</label>
-                    <input type="radio" id="satisfaction1" name="satisfaction" value="1">
-                    <label class="labelnumero" for="satisfaction1">1</label>
-                </div>
-                <div class="form-group">
-                    <label for="comments">Commentaires:</label>
-                    <textarea id="comments" name="comments"></textarea>
-                </div>
-                <div class="btnFormContainer">
-                    <button id="formBtn" type="submit">Envoyer</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <h2>Les derniers avis</h2>
-    <div class="slider-container">
-
-        <button class="directionBtn left">
-            <img src="../assets/left-arrow.png" alt="left arrow">
-
-        </button>
-
-        <button class="directionBtn right">
-            <img src="../assets/chevron.png" alt="right arrow">
-        </button>
-
-        <div class="slide slide 1 active">
-            <div class="content">
-                <img src="../assets/avis1.png" alt="photo et avis de Tony Manero">
             </div>
-        </div>
+            <div class="container">
+                <h2>Formulaire de Satisfaction</h2>
+                <p class="introForm">Merci de prendre quelques instants pour nous donner votre avis sur votre expérience
+                    au
+                    restaurant.
+                </p>
+                <form method="POST" id="satisfactionForm">
 
-        <div class="slide slide 2 ">
-            <div class="content">
-                <img src="../assets/avis2.png" alt="photo et avis de Gloria Esteban ">
+                    <div class="form-group">
+                        <label for="firstName">Prénom:</label>
+                        <input type="text" id="firstName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Nom:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Votre satisfaction globale:</label>
+                        <input type="radio" id="satisfaction5" name="satisfaction" value="5">
+                        <label class="labelnumero" for="satisfaction5">5</label>
+                        <input type="radio" id="satisfaction4" name="satisfaction" value="4">
+                        <label class="labelnumero" for="satisfaction4">4</label>
+                        <input type="radio" id="satisfaction3" name="satisfaction" value="3">
+                        <label class="labelnumero" for="satisfaction3">3</label>
+                        <input type="radio" id="satisfaction2" name="satisfaction" value="2">
+                        <label class="labelnumero" for="satisfaction2">2</label>
+                        <input type="radio" id="satisfaction1" name="satisfaction" value="1">
+                        <label class="labelnumero" for="satisfaction1">1</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="comments">Commentaires:</label>
+                        <textarea id="comments" name="comments"></textarea>
+                    </div>
+                    <div class="btnFormContainer">
+                        <button id="formBtn" type="submit">Envoyer</button>
+                    </div>
+                </form>
             </div>
-        </div>
+        </section>
 
-        <div class="slide slide 3 ">
-            <div class="content">
-                <img src="../assets/avis3.png" alt="photo et avis de Sophie Lagirafe">
+        <div id="modalBackground"></div>
+
+        <section class="advises">
+            <h2 class="CustomerAdvice">Avis Clients</h2>
+            <div class="slider-container">
+
+                <button class="direction-btn left">
+                    <img src="../assets/left-chevron.svg" alt="left arrow">
+                </button>
+                <button class="direction-btn right">
+                    <img src="../assets/right-chevron.svg" alt="right arrow">
+                </button>
+
+                <div class="slide slide-1 active">
+                    <div class="content">
+                        <img src="../assets/tonyManero.png" alt="photo et avis de Tony Manero">
+                        <h2>Tony</h2>
+                        <p>Le restaurant est très sympathique, le personnel également,
+                            et les plats sont délicieux. Je recommande vivement !
+                        </p>
+
+                    </div>
+                </div>
+                <div class="slide slide-2">
+                    <div class="content">
+                        <img src="../assets/SophieLagirafe.png" alt="photo et avis de Sophie Lagirafe">
+                        <h2>Sophie</h2>
+                        <p>Toujours très bon, avec des produits de qualité,
+                            j'y retourne avec plaisir !!
+                        </p>
+
+                    </div>
+                </div>
+                <div class="slide slide-3">
+                    <div class="content">
+                        <img src="../assets/GloriaEstafan.png" alt="photo et avis de Gloria Estafan">
+                        <h2>Gloria</h2>
+                        <p>Atmosphère familiale.
+                            Produits bio ou d'origine artisanale,
+                            Recettes originales et de qualité,
+                            Et les Cidre et jus de pomme de la cidrerie de la baie....
+                            d'exception (gouter le cidre au houblon !!!)
+                            Allez-y les yeux fermés.... Vous y reviendrez !
+                        </p>
+
+                    </div>
+                </div>
+                <div class="slide slide-4">
+                    <div class="content">
+                        <img src="../assets/parkerLewis.png" alt="photo et avis de Parker LewisNePerdJamais">
+                        <h2>Parker</h2>
+                        <p>Je recommande a 100% les galettes et crêpes sont excellentes et le personnel est très
+                            souriant et
+                            accueillant endroit très chaleureux ou l ont a envie de retourner quand on a tester
+                        </p>
+
+                    </div>
+                    <!-- photos téléchargées sur le site "https://thispersondoesnotexist.com/" -->
+
+                </div>
+
             </div>
-        </div>
-
-        <div class="slide slide 4 ">
-            <div class="content">
-                <img src="../assets/avis4.png" alt="photo et avis de Parker Lewis">
-            </div>
-        </div>
-
+        </section>
     </div>
 </main>
+
+
+
 
 
 <%- include('includes/footer') -%>

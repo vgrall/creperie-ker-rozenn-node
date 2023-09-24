@@ -1,31 +1,33 @@
-const slides = [...document.querySelectorAll(".slide")]; // je créé un tableau avec les slides
+const slides = [...document.querySelectorAll(".slide")];
 
 const sliderData = {
-  direction: 0, // je créé un objet qui va gérer toutes les propriété de mon slider
-  slideOutIndex: 0, // ma première slide par défaut qui est affichée
-  slideInIndex: 0, // la slide qui va rentrer ou sortir selon clic droit ou gauche
+  locked: false,
+  direction: 0,
+  slideOutIndex: 0,
+  slideInIndex: 0,
 };
 
-const directionsButtons = [...document.querySelectorAll(".directionBtn")]; //on va chercher les buttons
+const directionButtons = [...document.querySelectorAll(".direction-btn")];
 
-directionsButtons.forEach((btn) => btn.addEventListener("click", handleClick)); // on va aller écouter les clicc sur les boutons
+directionButtons.forEach((btn) => btn.addEventListener("click", handleClick));
 
 function handleClick(e) {
-  getDirection(e.target); // on veut executer la fonction getDirection avec le bouton sur lequel on a cliqué
-  updateSlides(); // on execute la fonction qui fait glisser les slides en fonction des boutons cliqués
+  if (sliderData.locked) return;
+  sliderData.locked = true;
+
+  getDirection(e.target);
+
+  slideOut();
 }
 
 function getDirection(btn) {
-  // prend en parametre le e.target donc le bouton sur lequel on a cliqué
-  sliderData.direction = btn.classList.contains("right") ? 1 : -1;
-  // est-ce que j'ai cliqué sur le btn droit ? si oui je met 1 sinon -1
-  sliderData.slideOutIndex = slides.findIndex(
-    (slide) => slide.classList.contains("active") // c'est la classe qui est active en ce moment
+  sliderData.direction = btn.className.includes("right") ? 1 : -1;
+
+  sliderData.slideOutIndex = slides.findIndex((slide) =>
+    slide.classList.contains("active")
   );
 
   if (sliderData.slideOutIndex + sliderData.direction > slides.length - 1) {
-    // si je suis arrivé à la fin du tableau je reviens au début
-
     sliderData.slideInIndex = 0;
   } else if (sliderData.slideOutIndex + sliderData.direction < 0) {
     sliderData.slideInIndex = slides.length - 1;
@@ -34,14 +36,53 @@ function getDirection(btn) {
   }
 }
 
-function updateSlides() {
-  slides.forEach((slide, index) => {
-    if (index === sliderData.slideOutIndex) {
-      slide.classList.remove("active");
-    } else if (index === sliderData.slideInIndex) {
-      slide.classList.add("active");
-    }
+function slideOut() {
+  slideAnimation({
+    el: slides[sliderData.slideInIndex],
+    props: {
+      display: "flex",
+      transform: `translateX(${sliderData.direction < 0 ? "100%" : "-100%"})`,
+      opacity: 0,
+    },
   });
+
+  slides[sliderData.slideOutIndex].addEventListener("transitionend", slideIn);
+
+  slideAnimation({
+    el: slides[sliderData.slideOutIndex],
+    props: {
+      transition:
+        "transform 0.4s cubic-bezier(0.74, -0.34, 1, 1.19), opacity 0.4s ease-out",
+      transform: `translateX(${sliderData.direction < 0 ? "-100%" : "100%"})`,
+      opacity: 0,
+    },
+  });
+}
+
+function slideAnimation(animationObject) {
+  for (const prop in animationObject.props) {
+    animationObject.el.style[prop] = animationObject.props[prop];
+  }
+}
+
+function slideIn(e) {
+  slideAnimation({
+    el: slides[sliderData.slideInIndex],
+    props: {
+      transition: "transform 0.4s ease-out, opacity 0.6s ease-out",
+      transform: "translateX(0%)",
+      opacity: 1,
+    },
+  });
+  slides[sliderData.slideInIndex].classList.add("active");
+
+  slides[sliderData.slideOutIndex].classList.remove("active");
+  e.target.removeEventListener("transitionend", slideIn);
+  slides[sliderData.slideOutIndex].style.display = "none";
+
+  setTimeout(() => {
+    sliderData.locked = false;
+  }, 400);
 }
 
 // *********************************************************************************************************************
@@ -61,6 +102,23 @@ function updateSlides() {
 //le bouton gauche ou droit, il affichera respectivement la diapositive précédente ou suivante.
 
 // *********************************************************************************************************************
+// Fonction pour afficher la boîte de dialogue
+function afficherPopup() {
+  const modal = document.getElementById("successModal");
+  const modalBackground = document.getElementById("modalBackground");
+
+  modal.style.display = "block";
+  modalBackground.style.display = "block";
+
+  // Fonction pour masquer la boîte de dialogue
+  function fermerPopup() {
+    modal.style.display = "none";
+    modalBackground.style.display = "none";
+  }
+
+  // Attacher l'événement de fermeture à l'ensemble du document
+  modalBackground.addEventListener("click", fermerPopup);
+}
 
 document
   .getElementById("satisfactionForm")
@@ -76,4 +134,10 @@ document
 
     // Vous pouvez maintenant envoyer les données à votre serveur ou les traiter ici
     console.log(data);
+
+    // Appeler la fonction pour afficher la boîte de dialogue
+    afficherPopup();
+
+    // Réinitialiser les champs du formulaire
+    document.getElementById("satisfactionForm").reset();
   });
