@@ -62,6 +62,8 @@ p {
     margin-bottom: 1.5rem;
 }
 
+
+
 a:-webkit-any-link {
     color: black;
 
@@ -493,6 +495,41 @@ NOS VALEURS
 
 }
 
+/* **************************************************************
+PAGE CARTE 
+************************************************************** */
+
+.carteCrepes {
+    text-align: center;
+    /* Centre le contenu de la carteCrepes horizontalement */
+}
+
+li {
+    display: flex;
+    /* Utilise Flexbox pour aligner les éléments en ligne */
+    justify-content: space-between;
+    /* Place crepeSort à gauche et price à droite */
+    align-items: center;
+    /* Centre verticalement le contenu des éléments li */
+    margin-bottom: 10px;
+    /* Ajoute un espacement entre les éléments de liste */
+}
+
+.crepeSort {
+    flex-grow: 1;
+    /* Permet à crepeSort de prendre l'espace disponible restant */
+    text-align: left;
+    /* Aligne crepeSort à gauche */
+    margin-left: 50px;
+    font-size: 1.5rem;
+}
+
+.price {
+    text-align: right;
+    /* Aligne price à droite */
+    margin-right: 50px;
+    font-size: 1.5rem;
+}
 
 
 /* *****************************************************************
@@ -506,6 +543,18 @@ ECRAN de 600 @ 768px
         font-size: 3.5em;
     }
 
+    .crepeSort {
+
+        margin-left: 130px;
+        font-size: 2.2rem;
+    }
+
+    .price {
+
+        margin-right: 130px;
+        font-size: 2.2rem;
+    }
+
 
 }
 
@@ -513,8 +562,6 @@ ECRAN de 600 @ 768px
 ECRAN de 769 @ 1024px
 ***************************************************************** */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-
-
 
     .p-carte,
     .p-carte-cidre {
@@ -570,6 +617,20 @@ ECRAN de 769 @ 1024px
 
 
     }
+
+    .crepeSort {
+
+        margin-left: 130px;
+        font-size: 3rem;
+    }
+
+    .price {
+
+        margin-right: 130px;
+        font-size: 3rem;
+    }
+
+
 
 
 }
@@ -707,6 +768,37 @@ NOS VALEURS
 
     }
 
+    .crepeSort {
+
+        margin-left: 200px;
+        font-size: 3rem;
+    }
+
+    .price {
+
+        margin-right: 200px;
+        font-size: 3rem;
+    }
 
 
+}
+
+/* *****************************************************************
+ECRAN de 1665px ET +
+***************************************************************** */
+@media screen and (min-width: 1665px) {
+
+
+
+    .crepeSort {
+
+        margin-left: 500px;
+        font-size: 3.5rem;
+    }
+
+    .price {
+
+        margin-right: 500px;
+        font-size: 3.5rem;
+    }
 }
