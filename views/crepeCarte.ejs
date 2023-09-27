@@ -51,7 +51,7 @@
                     <img id="triskell" src="../assets/triskell.png" alt="logo triskell" />
                 </a>
                 <h2 id="punchline" class="subtitle">TA DOSE DE BRETAGNE QUODITIENNE</h2>
-                <img id="bilic" src="../assets/crepeCarte.png" alt="bilic">
+                <img id="bilic" src="../assets/crepeCarte.png" alt="crepe">
             </div>
 
         </section>
@@ -62,25 +62,15 @@
     <main class="carteCrepes">
 
         <ul>
+            <% crepeCarte.forEach(function(crepe) { %>
             <li>
-                <span class="crepeSort">SUCRE</span>
-                <span class="price">€3.90</span>
+                <span class="crepeSort"><%= crepe.name %></span>
+                <span class="price"><%= crepe.price %> €</span>
             </li>
-        </ul>
-        <ul>
-            <li>
-                <span class="crepeSort">BEURRE SALÉ</span>
-                <span class="price">€4.50</span>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <span class="crepeSort">CARAMEL AU BEURRE SALÉ
 
-                </span>
-                <span class="price">€6.90</span>
-            </li>
+            <% }); %>
         </ul>
+
 
     </main>
 

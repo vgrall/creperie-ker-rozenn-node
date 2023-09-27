@@ -10,3 +10,5 @@ export const crepeCarte = [
   { name: "SUPPLÉMENT CHANTILLY", price: 1.5 },
   { name: "SUPPLÉMENT CHOCOLAT", price: 1.8 },
 ];
+
+export default crepeCarte;
