@@ -198,13 +198,13 @@ textarea {
     display: flex;
 }
 
-.content {
+.content-avis {
     margin-bottom: 50px;
     color: #dfdfdf;
     text-align: center;
 }
 
-.content img {
+.content-avis img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -212,12 +212,12 @@ textarea {
     object-position: center;
 }
 
-.content h2 {
+.content-avis h2 {
     font-size: 24px;
     margin-top: 20px;
 }
 
-.content p {
+.content-avis p {
     font-size: 20px;
     margin-top: 10px;
     color: gray;

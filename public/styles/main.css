@@ -121,7 +121,7 @@ HEADER
 
     background: rgb(241, 187, 70);
     background: linear-gradient(180deg, rgba(241, 187, 70, 1) 1%, rgba(243, 210, 138, 1) 15%, rgba(245, 227, 187, 1) 78%);
-    padding-top: 60px;
+    padding-top: 10px;
     transition: left 0.5s ease;
     border-radius: 1rem;
 
@@ -131,7 +131,6 @@ HEADER
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 2.4rem;
     font-weight: 600;
     color: #3B3939;
     display: block;
@@ -207,6 +206,7 @@ FOOTER
 
 .content-finDePage {
     grid-area: content-finDePage;
+    text-align: center;
 }
 
 
@@ -275,6 +275,7 @@ A-PROPOS
 
 .content {
     margin: 0 4rem 0 4rem;
+
 }
 
 #rozenn {
@@ -466,7 +467,7 @@ NOS VALEURS
 }
 
 #valeurs {
-    text-align: left;
+    text-align: center;
     color: #3B3939;
 }
 
@@ -639,6 +640,15 @@ ECRAN de 769 @ 1024px
 ECRAN de 1024 ET +
 ***************************************************************** */
 @media screen and (min-width: 1024px) {
+
+    .sidenav {
+        padding-top: 60px;
+    }
+
+    .sidenav a {
+        font-size: 2rem;
+    }
+
     .container-about {
         display: flex;
         align-items: center;
@@ -667,7 +677,7 @@ ECRAN de 1024 ET +
         padding-right: 1%;
         padding-left: 1%;
         /* Ajouter de l'espace autour du contenu */
-        text-align: justify;
+
     }
 
 
@@ -752,7 +762,7 @@ NOS VALEURS
 
 
     #contentValues {
-        padding-right: 3rem;
+        padding-right: 2.8rem;
     }
 
     .nosValeurs {
@@ -780,25 +790,28 @@ NOS VALEURS
         font-size: 3rem;
     }
 
+    #valeurs {
+        text-align: left;
 
-}
 
-/* *****************************************************************
+    }
+
+    /* *****************************************************************
 ECRAN de 1665px ET +
 ***************************************************************** */
-@media screen and (min-width: 1665px) {
+    @media screen and (min-width: 1665px) {
 
 
 
-    .crepeSort {
+        .crepeSort {
 
-        margin-left: 500px;
-        font-size: 3.5rem;
+            margin-left: 500px;
+            font-size: 3.5rem;
+        }
+
+        .price {
+
+            margin-right: 500px;
+            font-size: 3.5rem;
+        }
     }
-
-    .price {
-
-        margin-right: 500px;
-        font-size: 3.5rem;
-    }
-}
