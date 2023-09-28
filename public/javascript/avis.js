@@ -107,41 +107,19 @@ function slideIn(e) {
 
 // *********************************************************************************************************************
 // Fonction pour afficher la boîte de dialogue
-function afficherPopup() {
-  const modal = document.getElementById("successModal");
-  const modalBackground = document.getElementById("modalBackground");
+// function afficherPopup() {
+//   const modal = document.getElementById("successModal");
+//   const modalBackground = document.getElementById("modalBackground");
 
-  modal.style.display = "block";
-  modalBackground.style.display = "block";
+//   modal.style.display = "block";
+//   modalBackground.style.display = "block";
 
-  // Fonction pour masquer la boîte de dialogue
-  function fermerPopup() {
-    modal.style.display = "none";
-    modalBackground.style.display = "none";
-  }
+//   // Fonction pour masquer la boîte de dialogue
+//   function fermerPopup() {
+//     modal.style.display = "none";
+//     modalBackground.style.display = "none";
+//   }
 
-  // Attacher l'événement de fermeture à l'ensemble du document
-  modalBackground.addEventListener("click", fermerPopup);
-}
-
-document
-  .getElementById("satisfactionForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = {};
-
-    formData.forEach((value, key) => {
-      data[key] = value;
-    });
-
-    // Vous pouvez maintenant envoyer les données à votre serveur ou les traiter ici
-    console.log(data);
-
-    // Appeler la fonction pour afficher la boîte de dialogue
-    afficherPopup();
-
-    // Réinitialiser les champs du formulaire
-    document.getElementById("satisfactionForm").reset();
-  });
+//   // Attacher l'événement de fermeture à l'ensemble du document
+//   modalBackground.addEventListener("click", fermerPopup);
+// }
