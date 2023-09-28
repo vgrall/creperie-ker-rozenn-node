@@ -1,12 +1,8 @@
-// import crepeCarte from "../public/javascript/crepeCarte.js";
-// export default (req, res) => res.render("crepeCarte", { crepeCarte });
-
 import query from "../database.js";
-import crepeCarte from "../public/javascript/crepeCarte.js";
 
 export default (req, res) => {
   query(
-    "SELECT UPPER(name) 'name', price FROM menuItems WHERE type = 'CRP'",
+    "SELECT UPPER(name) 'name', price FROM menuItems WHERE type = 'CRP' ORDER BY price DESC",
     [],
     (error, result) => {
       if (error) {

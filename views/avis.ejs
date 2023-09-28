@@ -71,11 +71,10 @@
         </section>
 
         <div id="modalBackground"></div>
-
         <section class="advises">
             <h2 class="CustomerAdvice">Avis Clients</h2>
             <div class="slider-container">
-
+                <% for(let i = 0; i < result.length; i++) { %>
                 <button class="direction-btn left">
                     <img src="../assets/left-chevron.svg" alt="left arrow">
                 </button>
@@ -83,54 +82,14 @@
                     <img src="../assets/right-chevron.svg" alt="right arrow">
                 </button>
 
-                <div class="slide slide-1 active">
+                <div class="slide slide-<%= i %> <%= i === 0 ? 'active' : '' %>">
                     <div class="content-avis">
-                        <img src="../assets/tonyManero.png" alt="photo et avis de Tony Manero">
-                        <h2>Tony</h2>
-                        <p>Le restaurant est très sympathique, le personnel également,
-                            et les plats sont délicieux. Je recommande vivement !
-                        </p>
-
+                        <img src="/images/<%= result[i].photo %>" alt="Photo de <%= result[i].firstName %>">
+                        <h2><%= result[i].firstName.toUpperCase() %></h2>
+                        <p><%= result[i].comment %></p>
                     </div>
                 </div>
-                <div class="slide slide-2">
-                    <div class="content-avis">
-                        <img src="../assets/SophieLagirafe.png" alt="photo et avis de Sophie Lagirafe">
-                        <h2>Sophie</h2>
-                        <p>Toujours très bon, avec des produits de qualité,
-                            j'y retourne avec plaisir !!
-                        </p>
-
-                    </div>
-                </div>
-                <div class="slide slide-3">
-                    <div class="content-avis">
-                        <img src="../assets/GloriaEstafan.png" alt="photo et avis de Gloria Estafan">
-                        <h2>Gloria</h2>
-                        <p>Atmosphère familiale.
-                            Produits bio ou d'origine artisanale,
-                            Recettes originales et de qualité,
-                            Et les Cidre et jus de pomme de la cidrerie de la baie....
-                            d'exception (gouter le cidre au houblon !!!)
-                            Allez-y les yeux fermés.... Vous y reviendrez !
-                        </p>
-
-                    </div>
-                </div>
-                <div class="slide slide-4">
-                    <div class="content-avis">
-                        <img src="../assets/parkerLewis.png" alt="photo et avis de Parker LewisNePerdJamais">
-                        <h2>Parker</h2>
-                        <p>Je recommande a 100% les galettes et crêpes sont excellentes et le personnel est très
-                            souriant et
-                            accueillant endroit très chaleureux ou l ont a envie de retourner quand on a tester
-                        </p>
-
-                    </div>
-                    <!-- photos téléchargées sur le site "https://thispersondoesnotexist.com/" -->
-
-                </div>
-
+                <% } %>
             </div>
         </section>
     </div>
