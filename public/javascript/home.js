@@ -85,7 +85,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 /* *****************************************************************
-RECUPERATION DE LA VALEUR EMAIL
+AFFICHER LA FENETRE QUI DEMANDE L'EMAIL EN CAS D'ERREUR
 ***************************************************************** */
 // Définissez l'événement de clic en dehors de la fonction
 document.getElementById("btnConcours").onclick = function () {
@@ -104,15 +104,10 @@ function obtenirValeurEmail() {
   if (regex.test(valeurEmail)) {
     // L'adresse e-mail est valide, vous pouvez la traiter ici
     console.log("Adresse e-mail valide : " + valeurEmail);
-
-    // Effacez le champ email après validation
-    champEmail.value = "";
   } else {
     // L'adresse e-mail est invalide, affichez un message d'erreur ou effectuez une action appropriée
 
-    Swal.fire(
-      "Adresse e-mail invalide. Veuillez entrer une adresse e-mail valide."
-    );
+    Swal.fire("Veuillez entrer une adresse email valide.");
   }
 
   // Affichez la valeur dans la console (ou utilisez-la comme vous le souhaitez)

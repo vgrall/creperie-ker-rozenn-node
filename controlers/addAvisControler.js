@@ -1,17 +1,17 @@
 import query from "../database.js";
 import { v4 } from "uuid";
+import xss from "xss";
 
 export default (req, res) => {
   console.log("POST /avis");
   console.log(req.body);
 
-  let photo = req.body.photo;
-  console.log("la photo : ", photo);
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  const email = req.body.email;
+  let photo = xss(req.body.photo);
+  const firstName = xss(req.body.firstName);
+  const lastName = xss(req.body.lastName);
+  const email = xss(req.body.email);
   const comment = req.body.comment;
-  const satisfaction = req.body.satisfaction;
+  const satisfaction = xss(req.body.satisfaction);
   const id = v4();
 
   // tester si le champ photo est vide et le mettre à undifined

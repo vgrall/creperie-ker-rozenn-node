@@ -88,10 +88,12 @@
             <div class="pop-up-container">
                 <h3>Tentez de gagner une bouteille de cidre !<br />Tirage au sort tous les premiers lundis du mois
                 </h3>
+                <form method="POST" id="concoursForm" action="/concours">
                 <div class="button-container">
-                    <input id="emailField" type="email" placeholder="please enter you email">
-                    <button id="btnConcours" onclick="obtenirValeurEmail()">Envoyer</button>
+                    <input id="emailField" name="emailField" required type="email" placeholder="please enter you email" >
+                    <button id="btnConcours">Envoyer</button>
                 </div>
+                 </form>
                 <i class="far fa-times-circle" id="closeBtn"></i>
             </div>
         </div>
