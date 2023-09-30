@@ -19,12 +19,7 @@
 <main>
     <div id="formEtAdvice">
         <section class="formAdvice">
-            <div id="successModal" class="modal">
-                <div class="modal-content">
-                    <!-- <p class="close">&times;</p> -->
-                    <p>Votre avis a été envoyé avec succès!</p>
-                </div>
-            </div>
+
             <div class="container">
                 <h2>Votre Avis nous intéresse</h2>
                 <p class="introForm">Merci de prendre quelques instants pour nous donner votre avis sur votre expérience
@@ -32,6 +27,10 @@
                     restaurant.
                 </p>
                 <form method="POST" id="satisfactionForm">
+                    <div class="form-group">
+                        <label for="photo">Lien de votre plus beau selfie:</label>
+                        <input type="text" id="photo" name="photo" >
+                    </div>
 
                     <div class="form-group">
                         <label for="firstName">Prénom:</label>
@@ -48,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label>Votre satisfaction globale:</label>
-                        <input type="radio" id="satisfaction5" name="satisfaction" value="5">
+                        <input type="radio" id="satisfaction5" name="satisfaction" value="5" required>
                         <label class="labelnumero" for="satisfaction5">5</label>
 
                         <input type="radio" id="satisfaction4" name="satisfaction" value="4">
@@ -65,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label for="comment">Commentaires:</label>
-                        <textarea id="comment" name="comment"></textarea>
+                        <textarea id="comment" minlength="60" name="comment" required></textarea>
                     </div>
                     <div class="btnFormContainer">
                         <button id="formBtn" type="submit">Envoyer</button>
@@ -74,7 +73,7 @@
             </div>
         </section>
 
-        <div id="modalBackground"></div>
+       
         <section class="advises">
             <h2 class="CustomerAdvice">Avis Clients</h2>
             <div class="slider-container">
@@ -88,9 +87,9 @@
 
                 <div class="slide slide-<%= i %> <%= i === 0 ? 'active' : '' %>">
                     <div class="content-avis">
-                        <img src="/images/<%= result[i].photo %>" alt="Photo de <%= result[i].firstName %>">
+                        <img src="<%= result[i].photo %>" alt="Photo de <%= result[i].firstName %>">
                         <h2><%= result[i].firstName.toUpperCase() %></h2>
-                        <p><%= result[i].comment %></p>
+                        <p class="commentP"><%= result[i].comment %></p>
                     </div>
                 </div>
                 <% } %>
