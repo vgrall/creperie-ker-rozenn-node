@@ -25,19 +25,18 @@ export default (req, res) => {
     "INSERT INTO CONCOURS (id, mail) VALUES (?, ?)",
     [id, mail],
     (error) => {
-      if (error.code === "ER_DUP_ENTRY") {
+      if (error && error.code === "ER_DUP_ENTRY") {
         console.log("mail déjà enregistré");
         res.render("erreurMessage", {
           messageTitle: "Erreur",
           messageContent: "Vous avez déjà participé au concours",
         });
         return;
-      } else {
+      } else if (error) {
         console.error(`Erreur lors de l'exécution de la requête ${error}`);
         res.status(500).send("Erreur serveur");
         return;
       }
-
       res.render("messageConcours");
     }
   );
