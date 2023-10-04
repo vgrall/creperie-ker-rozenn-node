@@ -89,13 +89,13 @@
                     <div class="content-avis">
                         <img src="<%= result[i].photo %>" alt="Photo de <%= result[i].firstName %>">
                         <h2><%= result[i].firstName.toUpperCase() %></h2>
-                        <p class="commentP"><%= result[i].comment %></p>
+                        <div id="commentP">
+                        <p><%= result[i].comment %></p>
+                        </div>
                     </div>
                 </div>
                 <% } %>
             </div>
-
-            <!-- touts les photos proviennent du site https://thispersondoesnotexist.com/ -->
         </section>
     </div>
 </main>

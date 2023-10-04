@@ -3,7 +3,7 @@ import router from "./router.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = 3001;
+const PORT = 3000;
 const app = express();
 
 app.set("view engine", "ejs"); // Définit le moteur de modèle EJS
